@@ -2,6 +2,7 @@
 from load_data import load_sensor_data
 from house_info import HouseInfo
 from datetime import date, datetime
+from temperature_info import TemperatureData
 
 ##############################
 # Do not remove these two lines
@@ -21,7 +22,16 @@ print(f"\nHouse sensor data records for area {test_area} = {len(recs)}")
 test_date = datetime.strptime("5/9/20", "%m/%d/%y")
 recs = house_info.get_data_by_date("id", rec_date=test_date)
 
-print(f"\nHouse sensor data records for date {test_date} = {len(recs)}")
+print(f"\nHouse sensor data records for date {test_date.strftime('%m/%d/%y')} = {len(recs)}")
+
+temperature_data = TemperatureData(data)
+recs = temperature_data.get_data_by_area(rec_area=test_area)
+print(f"\nHouse Temperature sensor records for area {test_area} = {len(recs)}")
+print(f"\nMaximum: {max(recs)}  Minimum: {min(recs)}")
+
+recs = temperature_data.get_data_by_date(rec_date=test_date)
+print(f"\nHouse Temperature sensor records for date {test_date.strftime('%m/%d/%y')} = {len(recs)}")
+print(f"\nMaximum: {max(recs)}  Minimum: {min(recs)}")
 ##############################
 
 # Module 1 code here:
