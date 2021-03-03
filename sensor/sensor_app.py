@@ -1,9 +1,8 @@
-# Runner script for all modules
 from statistics import mean
 
 from load_data import load_sensor_data
 from house_info import HouseInfo
-from datetime import date, datetime
+from datetime import datetime
 
 from humidity_info import HumidityData
 from particle_count_info import ParticleData
