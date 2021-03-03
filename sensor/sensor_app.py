@@ -19,7 +19,7 @@ recs = house_info.get_data_by_area("id", rec_area=test_area)
 print(f"\nHouse sensor data records for area {test_area} = {len(recs)}")
 
 test_date = datetime.strptime("5/9/20", "%m/%d/%y")
-recs = house_info.get_data_by_date("date", rec_date=test_date)
+recs = house_info.get_data_by_date("id", rec_date=test_date)
 
 print(f"\nHouse sensor data records for date {test_date} = {len(recs)}")
 ##############################
