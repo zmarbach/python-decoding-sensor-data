@@ -2,12 +2,15 @@ from statistics import mean
 
 from load_data import load_sensor_data
 from house_info import HouseInfo
-from datetime import datetime
+from datetime import datetime, date
 
 from humidity_info import HumidityData
 from particle_count_info import ParticleData
 from energy_info import EnergyData
 from temperature_info import TemperatureData
+
+from util.my_constants import MDY_FORMAT
+
 
 ##############################
 # Do not remove these two lines
@@ -30,7 +33,7 @@ print(f"\nHouse sensor data records for area {test_area} = {len(recs)}")
 test_date = datetime.strptime("5/9/20", "%m/%d/%y")
 recs = house_info.get_data_by_date("id", rec_date=test_date)
 
-print(f"\nHouse sensor data records for date {test_date.strftime('%m/%d/%y')} = {len(recs)}")
+print(f"\nHouse sensor data records for date {test_date.strftime(MDY_FORMAT)} = {len(recs)}")
 
 # Module 3 code here:
 temperature_data = TemperatureData(data)
@@ -39,7 +42,7 @@ print(f"\nHouse Temperature sensor records for area {test_area} = {len(recs)}")
 print(f"\nMaximum: {max(recs)}  Minimum: {min(recs)}")
 
 recs = temperature_data.get_data_by_date(rec_date=test_date)
-print(f"\nHouse Temperature sensor records for date {test_date.strftime('%m/%d/%y')} = {len(recs)}")
+print(f"\nHouse Temperature sensor records for date {test_date.strftime(MDY_FORMAT)} = {len(recs)}")
 print(f"\nMaximum: {max(recs)}  Minimum: {min(recs)}")
 
 # Module 4 code here:
@@ -49,7 +52,7 @@ print(f"\nHouse Humidity sensor records for area {test_area} = {len(recs)}")
 print(f"\nAverage humidity: {mean(recs)}")
 
 recs = humidity_data.get_data_by_date(rec_date=test_date)
-print(f"\nHouse Humidity sensor records for date {test_date.strftime('%m/%d/%y')} = {len(recs)}")
+print(f"\nHouse Humidity sensor records for date {test_date.strftime(MDY_FORMAT)} = {len(recs)}")
 print(f"\nAverage humidity: {mean(recs)}")
 
 particle_data = ParticleData(data)
@@ -62,7 +65,7 @@ print("\tModerate Air Quality Recs: {}".format(concentrations["moderate"]))
 print("\tBad Air Quality Recs: {}".format(concentrations["bad"]))
 
 recs = particle_data.get_data_by_date(rec_date=test_date)
-print(f"\nHouse Particle sensor records for date {test_date.strftime('%m/%d/%y')} = {len(recs)}")
+print(f"\nHouse Particle sensor records for date {test_date.strftime(MDY_FORMAT)} = {len(recs)}")
 
 concentrations = particle_data.get_data_concentrations(data=recs)
 print("\tGood Air Quality Recs: {}".format(concentrations["good"]))
@@ -79,7 +82,7 @@ total_energy = energy_data.calculate_energy_usage(data=recs)
 print("\tEnergy Usage: {:2.2} Watts".format(total_energy))
 
 recs = energy_data.get_data_by_date(rec_date=test_date)
-print(f"\nHouse Energy sensor records for date {test_date.strftime('%m/%d/%y')} = {len(recs)}")
+print(f"\nHouse Energy sensor records for date {test_date.strftime(MDY_FORMAT)} = {len(recs)}")
 
 total_energy = energy_data.calculate_energy_usage(data=recs)
 print("\tEnergy Usage: {:2.2} Watts".format(total_energy))

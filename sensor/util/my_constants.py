@@ -5,9 +5,9 @@ TEMPERATURE = 'temperature'
 HUMIDITY = 'humidity'
 ENERGY_USAGE = 'energy_usage'
 PARTICULATE = 'particulate'
-AREA = "area"
+AREA = 'area'
 
 # Common date formats
-MDY_FORMAT = "%m/%d/%y"
+MDY_FORMAT = '%m/%d/%y'
 
 

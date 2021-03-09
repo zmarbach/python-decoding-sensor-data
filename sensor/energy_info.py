@@ -1,6 +1,6 @@
 from datetime import date
-
 from house_info import HouseInfo
+from util.my_constants import ENERGY_USAGE
 
 
 class EnergyData(HouseInfo):
@@ -20,11 +20,11 @@ class EnergyData(HouseInfo):
         return recs
 
     def get_data_by_area(self, rec_area=0):
-        recs = super().get_data_by_area("energy_usage", rec_area)
+        recs = super().get_data_by_area(ENERGY_USAGE, rec_area)
         return self._convert_data(recs)
 
     def get_data_by_date(self, rec_date=date.today()):
-        recs = super().get_data_by_date("energy_usage", rec_date)
+        recs = super().get_data_by_date(ENERGY_USAGE, rec_date)
         return self._convert_data(recs)
 
     def calculate_energy_usage(self, data):
